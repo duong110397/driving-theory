@@ -1,6 +1,7 @@
 import logging
 
 from django.contrib.auth import authenticate, login, logout
+from django.db import IntegrityError, transaction
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_protect, ensure_csrf_cookie
 from rest_framework import status
@@ -10,7 +11,7 @@ from rest_framework.response import Response
 from rest_framework.throttling import ScopedRateThrottle
 from rest_framework.views import APIView
 
-from .serializers import LoginSerializer, UserSerializer
+from .serializers import USERNAME_TAKEN_MESSAGE, LoginSerializer, RegisterSerializer, UserSerializer
 
 logger = logging.getLogger(__name__)
 
@@ -55,6 +56,32 @@ class LoginView(APIView):
         # Rotates the session key and CSRF token (prevents session fixation).
         login(request._request, user)
         return Response(UserSerializer(user).data)
+
+
+@method_decorator(csrf_protect, name="dispatch")
+class RegisterView(APIView):
+    """Creates an account (no email verification) and logs the new user in."""
+
+    permission_classes = [AllowAny]
+    throttle_classes = [ScopedRateThrottle]
+    throttle_scope = "register"
+
+    def post(self, request: Request) -> Response:
+        serializer = RegisterSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        try:
+            with transaction.atomic():
+                user = serializer.save()
+        except IntegrityError:
+            # Lost a race against a concurrent signup with the same username.
+            return Response(
+                {"username": [USERNAME_TAKEN_MESSAGE]},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        logger.info("New account registered: user_id=%s", user.pk)
+        login(request._request, user, backend="django.contrib.auth.backends.ModelBackend")
+        return Response(UserSerializer(user).data, status=status.HTTP_201_CREATED)
 
 
 class LogoutView(APIView):

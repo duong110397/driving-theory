@@ -1,13 +1,9 @@
 import { useState, type FormEvent } from 'react'
-import { Navigate, useLocation, useNavigate } from 'react-router'
+import { Link, Navigate, useLocation, useNavigate } from 'react-router'
 import { ApiError } from '../api/client'
 import { useAuth } from '../auth/AuthContext'
+import { safeRedirect } from '../auth/redirect'
 import type { LoginLocationState } from '../auth/RequireAuth'
-
-/** Only allow in-app redirects to avoid open-redirect via router state. */
-function safeRedirect(from: unknown): string {
-  return typeof from === 'string' && from.startsWith('/') && !from.startsWith('//') ? from : '/'
-}
 
 export function LoginPage() {
   const { state, login } = useAuth()
@@ -83,6 +79,13 @@ export function LoginPage() {
         <button type="submit" disabled={submitting || !username.trim() || !password}>
           {submitting ? 'Đang đăng nhập…' : 'Đăng nhập'}
         </button>
+
+        <p className="auth-switch">
+          Chưa có tài khoản?{' '}
+          <Link to="/register" state={location.state}>
+            Đăng ký
+          </Link>
+        </p>
       </form>
     </main>
   )

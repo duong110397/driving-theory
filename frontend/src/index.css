@@ -200,6 +200,17 @@ input:not([type='radio']) {
 .card button {
   margin-top: 0.8rem;
 }
+.field-error {
+  color: var(--stop-red);
+  font-size: 0.875rem;
+  margin: 0;
+}
+.auth-switch {
+  margin: 0.4rem 0 0;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
 
 /* ---------- app shell ---------- */
 

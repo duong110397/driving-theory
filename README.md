@@ -30,9 +30,9 @@ Migration tự chạy khi backend khởi động (`backend/entrypoint.sh`). Lầ
 docker compose exec backend python manage.py import_questions
 ```
 
-## Đăng nhập / Đăng xuất
+## Đăng ký / Đăng nhập / Đăng xuất
 
-Dùng **Django session + CSRF** (cookie `sessionid` là HttpOnly, JS không đọc được). Chưa có chức năng đăng ký, tạo user bằng:
+Dùng **Django session + CSRF** (cookie `sessionid` là HttpOnly, JS không đọc được). Người dùng tự đăng ký tại `/register` (tên đăng nhập, email, mật khẩu; không gửi mail xác thực) và được đăng nhập ngay sau khi tạo tài khoản. Tài khoản admin tạo bằng:
 
 ```bash
 docker compose exec backend python manage.py createsuperuser
@@ -42,6 +42,7 @@ docker compose exec backend python manage.py createsuperuser
 |---|---|---|
 | `/api/auth/csrf/` | GET | Set cookie `csrftoken` |
 | `/api/auth/login/` | POST | `{username, password}` → user. Giới hạn `LOGIN_THROTTLE_RATE` |
+| `/api/auth/register/` | POST | `{username, email, password}` → `201` user + đăng nhập luôn. Username/email không trùng (không phân biệt hoa thường), mật khẩu tối thiểu 8 ký tự. Giới hạn `REGISTER_THROTTLE_RATE` |
 | `/api/auth/logout/` | POST | Huỷ session |
 | `/api/auth/me/` | GET | User hiện tại, `401` nếu chưa đăng nhập |
 
@@ -53,6 +54,10 @@ sequenceDiagram
     BE-->>FE: Set-Cookie csrftoken
     FE->>BE: GET /api/auth/me/
     BE-->>FE: 401 → chuyển tới /login
+    opt Chưa có tài khoản
+        FE->>BE: POST /api/auth/register/ (X-CSRFToken)
+        BE-->>FE: 201 user + Set-Cookie sessionid (HttpOnly)
+    end
     FE->>BE: POST /api/auth/login/ (X-CSRFToken)
     BE-->>FE: 200 user + Set-Cookie sessionid (HttpOnly)
     FE->>BE: POST /api/auth/logout/ (X-CSRFToken)

@@ -84,11 +84,9 @@ DATABASES = {
     }
 }
 
+# Only enforce a minimum length (8 by default).
 AUTH_PASSWORD_VALIDATORS = [
-    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
-    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
-    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 
 LANGUAGE_CODE = "vi"
@@ -112,6 +110,7 @@ REST_FRAMEWORK = {
     "PAGE_SIZE": 20,
     "DEFAULT_THROTTLE_RATES": {
         "login": env("LOGIN_THROTTLE_RATE", "5/min"),
+        "register": env("REGISTER_THROTTLE_RATE", "10/hour"),
         "exam_create": env("EXAM_CREATE_THROTTLE_RATE", "30/hour"),
     },
 }

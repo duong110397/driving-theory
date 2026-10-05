@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react'
-import type { Credentials, User } from './api'
+import type { Credentials, Registration, User } from './api'
 
 export type AuthState =
   | { status: 'loading' }
@@ -10,6 +10,7 @@ export type AuthState =
 export interface AuthContextValue {
   state: AuthState
   login: (credentials: Credentials) => Promise<void>
+  register: (registration: Registration) => Promise<void>
   logout: () => Promise<void>
   reload: () => void
 }

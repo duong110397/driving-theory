@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react'
 import { ApiError, hasCsrfToken, setUnauthorizedHandler } from '../api/client'
-import { authApi, type Credentials } from './api'
+import { authApi, type Credentials, type Registration } from './api'
 import { AuthContext, type AuthContextValue, type AuthState } from './AuthContext'
 
 export function AuthProvider({ children }: { children: ReactNode }) {
@@ -41,6 +41,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setState({ status: 'authenticated', user })
   }, [])
 
+  const register = useCallback(async (registration: Registration) => {
+    if (!hasCsrfToken()) {
+      await authApi.ensureCsrf()
+    }
+    // The backend logs the new account in, so the session is already active.
+    const user = await authApi.register(registration)
+    setState({ status: 'authenticated', user })
+  }, [])
+
   const logout = useCallback(async () => {
     try {
       await authApi.logout()
@@ -56,7 +65,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setReloadKey((k) => k + 1)
   }, [])
 
-  const value = useMemo<AuthContextValue>(() => ({ state, login, logout, reload }), [state, login, logout, reload])
+  const value = useMemo<AuthContextValue>(
+    () => ({ state, login, register, logout, reload }),
+    [state, login, register, logout, reload],
+  )
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }
