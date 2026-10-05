@@ -33,6 +33,8 @@ export function AppLayout() {
           <NavLink to="/" end>
             Thi thử
           </NavLink>
+          <NavLink to="/practice">Ôn tập</NavLink>
+          <NavLink to="/tips">Mẹo</NavLink>
           <NavLink to="/history">Lịch sử</NavLink>
         </nav>
         <div className="topbar-user">

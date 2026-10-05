@@ -1,5 +1,8 @@
 from django.db.models import Count, QuerySet
 from rest_framework import viewsets
+from rest_framework.request import Request
+from rest_framework.response import Response
+from rest_framework.views import APIView
 from rest_framework.exceptions import ValidationError
 from rest_framework.pagination import PageNumberPagination
 
@@ -7,6 +10,7 @@ from apps.exams.rules import EXAM_RULES
 
 from .models import Chapter, Question
 from .serializers import ChapterSerializer, QuestionSerializer
+from .tips import tip_book_payload
 
 
 class QuestionPagination(PageNumberPagination):
@@ -58,3 +62,10 @@ class QuestionViewSet(viewsets.ReadOnlyModelViewSet):
             qs = qs.filter(rule.question_set.pool())
 
         return qs
+
+
+class TipsView(APIView):
+    """Study tips per chapter, plus popular tips that don't hold for the 2025 bank."""
+
+    def get(self, request: Request) -> Response:
+        return Response(tip_book_payload())

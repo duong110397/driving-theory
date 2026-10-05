@@ -3,6 +3,7 @@ import { ApiError } from '../api/client'
 import { examsApi, type Answers, type Exam } from '../api/exams'
 import { Countdown } from './Countdown'
 import { QuestionView } from './QuestionView'
+import { useQuestionHotkeys } from './useQuestionHotkeys'
 import { useCountdown } from './useCountdown'
 
 type SaveState = 'saving' | 'saved' | 'error'
@@ -77,27 +78,16 @@ export function ExamRunner({ exam, onFinished }: Props) {
 
   const goTo = useCallback((i: number) => setIndex(Math.min(total - 1, Math.max(0, i))), [total])
 
-  // Keyboard: 1-4 chooses an answer, arrow keys move between questions.
-  useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      if (submitting || dialogRef.current?.open || e.altKey || e.ctrlKey || e.metaKey) return
-      const target = e.target as HTMLElement
-      const isTextField =
-        target.isContentEditable ||
-        (['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName) && target.getAttribute('type') !== 'radio')
-      if (isTextField) return
-      if (e.key === 'ArrowRight') goTo(index + 1)
-      else if (e.key === 'ArrowLeft') goTo(index - 1)
-      else {
-        const n = Number(e.key)
-        if (item.options.some((o) => o.position === n)) select(item.number, n)
-        else return
-      }
-      e.preventDefault()
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [goTo, index, item, select, submitting])
+  useQuestionHotkeys({
+    isBlocked: () => submitting || Boolean(dialogRef.current?.open),
+    onPrev: () => goTo(index - 1),
+    onNext: () => goTo(index + 1),
+    onPick: (position) => {
+      if (!item.options.some((o) => o.position === position)) return false
+      select(item.number, position)
+      return true
+    },
+  })
 
   const failedSaves = Object.values(saveState).filter((s) => s === 'error').length
   const currentSave = saveState[item.number]

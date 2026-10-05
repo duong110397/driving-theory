@@ -1,0 +1,325 @@
+{
+  "tips": [
+    {
+      "id": "toc-do-dong-dan-cu",
+      "chapter": 1,
+      "title": "Tốc độ trong khu đông dân cư: 60 hay 50",
+      "points": [
+        "Chỉ cần nhìn loại đường, không cần nhớ loại xe (trừ xe gắn máy, xe máy chuyên dùng).",
+        "Đường đôi hoặc đường một chiều có từ 2 làn xe cơ giới trở lên: 60 km/h.",
+        "Đường hai chiều hoặc đường một chiều chỉ có 1 làn xe cơ giới: 50 km/h.",
+        "Câu hỏi \"loại xe nào được chạy 60 (hoặc 50) km/h trong khu đông dân cư\": đáp án là ô tô tải, ô tô chở người trên 28 chỗ, vì mọi ô tô đều chung mức."
+      ],
+      "questions": [
+        { "number": 145, "answer": "60 km/h" },
+        { "number": 146, "answer": "50 km/h" },
+        { "number": 147, "answer": "Ô tô tải, ô tô chở người trên 28 chỗ" },
+        { "number": 148, "answer": "Ô tô tải, ô tô chở người trên 28 chỗ" }
+      ]
+    },
+    {
+      "id": "toc-do-ngoai-dong-dan-cu",
+      "chapter": 1,
+      "title": "Tốc độ ngoài khu đông dân cư: 4 nhóm xe, mỗi nhóm kém nhau 10 km/h",
+      "points": [
+        "Đường đôi (hoặc một chiều từ 2 làn): 90 → 80 → 70 → 60. Đường hai chiều (hoặc một chiều 1 làn): bớt đi 10, thành 80 → 70 → 60 → 50.",
+        "Nhóm 1 (nhanh nhất): ô tô chở người đến 28 chỗ (trừ xe buýt), ô tô tải đến 3,5 tấn.",
+        "Nhóm 2: ô tô chở người trên 28 chỗ (trừ xe buýt), ô tô tải trên 3,5 tấn (trừ xi téc).",
+        "Nhóm 3: xe buýt, đầu kéo sơ mi rơ moóc (trừ xi téc), xe mô tô, ô tô chuyên dùng (trừ trộn vữa, trộn bê tông).",
+        "Nhóm 4 (chậm nhất): xe kéo rơ moóc, kéo xe khác, trộn vữa, trộn bê tông, xi téc.",
+        "Cách nhớ: xe càng to, càng nặng, càng chở chất nguy hiểm thì càng chậm."
+      ],
+      "questions": [
+        { "number": 149, "answer": "chở người đến 28 chỗ" },
+        { "number": 150, "answer": "chở người trên 28 chỗ" },
+        { "number": 151, "answer": "Xe buýt; ô tô đầu kéo" },
+        { "number": 152, "answer": "Ô tô kéo rơ moóc" },
+        { "number": 153, "answer": "chở người đến 28 chỗ" },
+        { "number": 154, "answer": "chở người trên 28 chỗ" },
+        { "number": 155, "answer": "Xe buýt; ô tô đầu kéo" },
+        { "number": 156, "answer": "Ô tô kéo rơ moóc" }
+      ]
+    },
+    {
+      "id": "toc-do-xe-nho",
+      "chapter": 1,
+      "title": "Xe gắn máy 40, xe chở hàng bốn bánh có động cơ 50",
+      "points": [
+        "Xe gắn máy, xe máy chuyên dùng (trừ đường cao tốc): tối đa 40 km/h.",
+        "Xe chở hàng bốn bánh có gắn động cơ (trong phạm vi, thời gian được phép hoạt động): tối đa 50 km/h."
+      ],
+      "questions": [
+        { "number": 144, "answer": "40 km/h" },
+        { "number": 157, "answer": "Xe chở hàng bốn bánh có gắn động cơ" }
+      ]
+    },
+    {
+      "id": "khoang-cach-an-toan",
+      "chapter": 1,
+      "title": "Khoảng cách an toàn: 35 – 55 – 70 – 100",
+      "points": [
+        "Đúng 60 km/h: 35 m.",
+        "Trên 60 đến 80 km/h: 55 m.",
+        "Trên 80 đến 100 km/h: 70 m.",
+        "Trên 100 đến 120 km/h: 100 m.",
+        "Đọc kỹ khoảng tốc độ trong câu hỏi, vì 3 câu này có cùng các lựa chọn 35, 55, 70, 100 m."
+      ],
+      "questions": [
+        { "number": 161, "answer": "35 m" },
+        { "number": 160, "answer": "55 m" },
+        { "number": 158, "answer": "70 m" },
+        { "number": 159, "answer": "100 m" }
+      ]
+    },
+    {
+      "id": "do-tuoi",
+      "chapter": 1,
+      "title": "Độ tuổi: 16 – 18 – 24 – 27, tối đa nam 57, nữ 55",
+      "points": [
+        "Từ đủ 16 đến dưới 18 tuổi: chỉ được lái xe gắn máy.",
+        "18 tuổi: mô tô đến 125 cm³, ô tô đến 8 chỗ, ô tô tải đến 7,5 tấn (hạng A1, A, B, C1).",
+        "24 tuổi: ô tô chở người trên 16 đến 29 chỗ.",
+        "27 tuổi: ô tô chở người trên 29 chỗ, xe giường nằm.",
+        "Tuổi tối đa lái ô tô chở người trên 29 chỗ: nam đủ 57, nữ đủ 55."
+      ],
+      "questions": [
+        { "number": 123, "answer": "Xe gắn máy" },
+        { "number": 118, "answer": "18 tuổi" },
+        { "number": 119, "answer": "18 tuổi" },
+        { "number": 122, "answer": "24 tuổi" },
+        { "number": 120, "answer": "27 tuổi" },
+        { "number": 121, "answer": "57 tuổi đối với nam và đủ 55 tuổi đối với nữ" }
+      ]
+    },
+    {
+      "id": "thoi-gian-lai-xe",
+      "chapter": 1,
+      "title": "Lái xe kinh doanh vận tải: liên tục 4 giờ, cả ngày 10 giờ",
+      "points": [
+        "Lái liên tục không quá 4 giờ.",
+        "Thời gian làm việc trong một ngày không quá 10 giờ."
+      ],
+      "questions": [
+        { "number": 171, "answer": "Không quá 4 giờ" },
+        { "number": 172, "answer": "Không quá 10 giờ" }
+      ]
+    },
+    {
+      "id": "nhuong-duong-giao-nhau",
+      "chapter": 1,
+      "title": "Vòng xuyến nhường bên trái, không vòng xuyến nhường bên phải",
+      "points": [
+        "Nơi giao nhau có báo hiệu đi theo vòng xuyến: nhường xe đi đến từ bên trái (xe đã ở trong vòng).",
+        "Nơi giao nhau không có báo hiệu vòng xuyến: nhường xe đi đến từ bên phải."
+      ],
+      "questions": [
+        { "number": 92, "answer": "bên trái" },
+        { "number": 93, "answer": "bên phải" }
+      ]
+    },
+    {
+      "id": "hieu-lenh-cao-nhat",
+      "chapter": 1,
+      "title": "Hiệu lệnh của người điều khiển giao thông đứng trên hết",
+      "points": [
+        "Khi hiệu lệnh của người điều khiển giao thông khác với đèn hay biển báo, làm theo người điều khiển giao thông.",
+        "Người điều khiển giao thông là Cảnh sát giao thông và người được giao nhiệm vụ hướng dẫn giao thông."
+      ],
+      "questions": [
+        { "number": 38, "answer": "hiệu lệnh của người điều khiển giao thông" },
+        { "number": 13, "answer": "Cảnh sát giao thông và người được giao nhiệm vụ hướng dẫn giao thông" }
+      ]
+    },
+    {
+      "id": "cao-toc",
+      "chapter": 1,
+      "title": "Làn dừng khẩn cấp trên cao tốc không phải để thoát ùn tắc",
+      "points": [
+        "Kẹt xe trên cao tốc cũng không được chạy vào làn dừng xe khẩn cấp (trừ xe ưu tiên).",
+        "Xe ưu tiên đi làm nhiệm vụ khẩn cấp chỉ được đi ngược chiều trên làn dừng xe khẩn cấp."
+      ],
+      "questions": [
+        { "number": 116, "answer": "Không" },
+        { "number": 112, "answer": "Chỉ được đi ngược chiều trên làn dừng xe khẩn cấp" }
+      ]
+    },
+    {
+      "id": "con-va-tre-em",
+      "chapter": 1,
+      "title": "Cồn: tuyệt đối không. Trẻ em dưới 10 tuổi: không ngồi hàng ghế lái",
+      "points": [
+        "Lái xe mà trong máu hoặc hơi thở có nồng độ cồn, dù rất ít, đều bị nghiêm cấm.",
+        "Trẻ em dưới 10 tuổi và cao dưới 1,35 m không được ngồi cùng hàng ghế với người lái (trừ xe chỉ có một hàng ghế)."
+      ],
+      "questions": [
+        { "number": 24, "answer": "Bị nghiêm cấm." },
+        { "number": 42, "answer": "Không được cho trẻ em ngồi cùng hàng ghế với người lái xe" }
+      ]
+    },
+    {
+      "id": "vuot-xe-ban-dem",
+      "chapter": 1,
+      "title": "Từ 22 giờ đến 5 giờ trong đô thị: vượt xe chỉ báo bằng đèn",
+      "points": [
+        "Ban đêm trong khu đô thị, đông dân cư không dùng còi để xin vượt, chỉ báo hiệu bằng đèn."
+      ],
+      "questions": [
+        { "number": 80, "answer": "Chỉ được báo hiệu bằng đèn" }
+      ]
+    },
+    {
+      "id": "hang-gplx-moi",
+      "chapter": 1,
+      "title": "Hạng giấy phép lái xe mới: không còn B2, E, FC",
+      "points": [
+        "Từ 2025 các hạng là A1, A, B1, B, C1, C, D1, D2, D và các hạng kéo rơ moóc BE, C1E, CE, D1E, D2E, DE.",
+        "C1: ô tô tải trên 3,5 tấn đến 7,5 tấn. D1: ô tô chở người trên 8 đến 16 chỗ.",
+        "Hạng có chữ E là hạng gốc kéo thêm rơ moóc trên 750 kg."
+      ],
+      "questions": [
+        { "number": 128, "answer": "trên 3.500 kg đến 7.500 kg" },
+        { "number": 130, "answer": "trên 08 chỗ" },
+        { "number": 133, "answer": "hạng B kéo rơ moóc có khối lượng toàn bộ theo thiết kế trên 750 kg" }
+      ]
+    },
+    {
+      "id": "lai-xe-doc-mua",
+      "chapter": 3,
+      "title": "Đường dốc và trời mưa: về số thấp, giảm tốc, bật đèn chiếu gần",
+      "points": [
+        "Lên dốc cao: về số thấp từ chân dốc. Xuống dốc dài: về số thấp, phối hợp phanh chân để giữ tốc độ.",
+        "Mưa to, sương mù: giảm tốc độ, giữ khoảng cách, bật đèn chiếu gần (và đèn sương mù, đèn vàng nếu có).",
+        "Mô tô muốn phanh hiệu quả nhất: nhả hết ga, dùng đồng thời cả phanh trước và phanh sau."
+      ],
+      "questions": [
+        { "number": 212, "answer": "Về số thấp từ chân dốc" },
+        { "number": 213, "answer": "Về số thấp" },
+        { "number": 240, "answer": "Giảm tốc độ" },
+        { "number": 242, "answer": "sử dụng đồng thời cả phanh sau và phanh trước" }
+      ]
+    },
+    {
+      "id": "nien-han",
+      "chapter": 4,
+      "title": "Niên hạn sử dụng: xe tải 25 năm, xe chở người trên 8 chỗ 20 năm",
+      "points": [
+        "Ô tô tải: không quá 25 năm kể từ năm sản xuất.",
+        "Ô tô chở người trên 8 chỗ: không quá 20 năm. Xe chở người được dùng ít năm hơn vì an toàn của hành khách quan trọng hơn."
+      ],
+      "questions": [
+        { "number": 277, "answer": "25 năm" },
+        { "number": 278, "answer": "20 năm" }
+      ]
+    },
+    {
+      "id": "cong-dung-bo-phan",
+      "chapter": 4,
+      "title": "Công dụng các bộ phận ô tô: nhớ theo từ khoá",
+      "points": [
+        "Động cơ: biến nhiệt năng thành cơ năng.",
+        "Hệ thống truyền lực: truyền mô men quay đến bánh xe chủ động.",
+        "Ly hợp (côn): truyền hoặc ngắt truyền động từ động cơ đến hộp số.",
+        "Hộp số: thay đổi mô men và giúp xe chạy lùi.",
+        "Hệ thống lái: thay đổi hướng. Hệ thống phanh: giảm tốc, dừng và giữ xe đứng yên trên dốc.",
+        "Ắc quy: tích trữ điện. Máy phát điện: phát điện và nạp lại cho ắc quy."
+      ],
+      "questions": [
+        { "number": 279, "answer": "nhiệt năng được biến đổi thành cơ năng" },
+        { "number": 280, "answer": "truyền mô men quay" },
+        { "number": 281, "answer": "truyền hoặc ngắt truyền động từ động cơ đến hộp số" },
+        { "number": 282, "answer": "chuyển động lùi" },
+        { "number": 283, "answer": "thay đổi hướng chuyển động" },
+        { "number": 284, "answer": "giữ cho xe ô tô đứng yên trên dốc" },
+        { "number": 291, "answer": "tích trữ điện năng" },
+        { "number": 292, "answer": "phát điện năng" }
+      ]
+    },
+    {
+      "id": "nhom-bien-bao",
+      "chapter": 5,
+      "title": "Nhận nhóm biển báo qua hình dạng và màu sắc",
+      "points": [
+        "Biển cấm: hình tròn, viền đỏ, nền trắng. Biển nguy hiểm và cảnh báo: tam giác, viền đỏ, nền vàng.",
+        "Biển hiệu lệnh (bắt buộc làm theo): hình tròn, nền xanh. Biển chỉ dẫn: hình vuông hoặc chữ nhật, nền xanh.",
+        "Biển phụ đặt dưới biển chính để nói rõ thêm. Ví dụ biển phụ ghi khoảng cách dưới biển cấm bóp còi là chiều dài đoạn đường bị cấm, tính từ chỗ đặt biển."
+      ],
+      "questions": [
+        { "number": 347, "answer": "Chiều dài đoạn đường cấm bóp còi từ nơi đặt biển" }
+      ]
+    },
+    {
+      "id": "cam-re-trai-quay-dau",
+      "chapter": 5,
+      "title": "Biển cấm rẽ trái KHÔNG cấm quay đầu (quy chuẩn mới)",
+      "points": [
+        "Theo quy chuẩn biển báo mới, biển \"Cấm rẽ trái\" chỉ cấm rẽ trái, xe vẫn được quay đầu.",
+        "Muốn cấm cả rẽ trái lẫn quay đầu thì biển phải vẽ cả hai hướng đó.",
+        "Mẹo cũ \"cấm rẽ trái thì cấm luôn quay đầu\" không còn đúng với bộ đề 2025."
+      ],
+      "questions": [
+        { "number": 323, "answer": "Cả hai biển" },
+        { "number": 324, "answer": "Biển 1" },
+        { "number": 320, "answer": "Biển 2" }
+      ]
+    },
+    {
+      "id": "thu-tu-sa-hinh",
+      "chapter": 6,
+      "title": "Sa hình: xét theo đúng thứ tự 5 bước",
+      "points": [
+        "1. Xe đã ở trong nơi giao nhau được đi trước.",
+        "2. Xe ưu tiên đang làm nhiệm vụ: chữa cháy, rồi quân sự và công an làm nhiệm vụ khẩn cấp, rồi cứu thương, rồi hộ đê và khắc phục thiên tai, cuối cùng là đoàn xe tang.",
+        "3. Xe trên đường ưu tiên (có biển báo đường ưu tiên) đi trước xe trên đường không ưu tiên.",
+        "4. Đường ngang cấp nhau, không có vòng xuyến: nhường xe đến từ bên phải.",
+        "5. Cùng điều kiện thì theo hướng đi: rẽ phải, rồi đi thẳng, rồi rẽ trái.",
+        "Có người điều khiển giao thông thì làm theo hiệu lệnh của họ trước mọi bước trên."
+      ],
+      "questions": [
+        { "number": 493, "answer": "Xe con (A), xe cứu thương đi làm nhiệm vụ cấp cứu, xe con (B)." },
+        { "number": 494, "answer": "Xe chữa cháy đi làm nhiệm vụ chữa cháy, xe cứu thương" },
+        { "number": 498, "answer": "Xe chữa cháy" }
+      ]
+    }
+  ],
+  "myths": [
+    {
+      "id": "dap-an-dai-nhat",
+      "claim": "Không biết thì chọn đáp án dài nhất",
+      "truth": "Bộ đề 2025 có rất nhiều đáp án sai được viết dài và chi tiết, nên chọn đáp án dài nhất sai còn nhiều hơn đúng.",
+      "heuristic": "longest_option",
+      "questions": []
+    },
+    {
+      "id": "ca-y-tren",
+      "claim": "Có đáp án \"Cả ... ý trên\" thì chọn nó",
+      "truth": "Đúng ở nhiều câu nhưng vẫn sai ở khá nhiều câu, đủ để trượt nếu rơi vào câu điểm liệt.",
+      "heuristic": "all_of_the_above",
+      "questions": []
+    },
+    {
+      "id": "cam-re-trai",
+      "claim": "Biển cấm rẽ trái thì cấm luôn quay đầu",
+      "truth": "Sai với quy chuẩn biển báo mới. Biển \"Cấm rẽ trái\" vẫn cho quay đầu.",
+      "questions": [
+        { "number": 323, "answer": "Cả hai biển" },
+        { "number": 324, "answer": "Biển 1" }
+      ]
+    },
+    {
+      "id": "tuoi-toi-da",
+      "claim": "Tuổi tối đa lái xe khách lớn: nam 55, nữ 50",
+      "truth": "Theo bộ đề 2025 là nam đủ 57, nữ đủ 55.",
+      "questions": [
+        { "number": 121, "answer": "57 tuổi đối với nam và đủ 55 tuổi đối với nữ" }
+      ]
+    },
+    {
+      "id": "hang-cu-va-so-cau-cu",
+      "claim": "Mẹo ghi hạng B2, E, FC hoặc số câu theo bộ cũ (khái niệm 1–304, biển báo 305–486…)",
+      "truth": "Đó là mẹo của bộ đề cũ. Bộ 2025 không còn hạng B2, E, FC, và số câu đã thay đổi: chương I là 1–180, biển báo là 301–485, sa hình là 486–600.",
+      "questions": [
+        { "number": 133, "answer": "hạng B kéo rơ moóc" }
+      ]
+    }
+  ]
+}

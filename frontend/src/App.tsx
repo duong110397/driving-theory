@@ -5,7 +5,9 @@ import { ExamPage } from './pages/ExamPage'
 import { HistoryPage } from './pages/HistoryPage'
 import { HomePage } from './pages/HomePage'
 import { LoginPage } from './pages/LoginPage'
+import { PracticePage } from './pages/PracticePage'
 import { RegisterPage } from './pages/RegisterPage'
+import { TipsPage } from './pages/TipsPage'
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
       <Route element={<RequireAuth />}>
         <Route element={<AppLayout />}>
           <Route path="/" element={<HomePage />} />
+          <Route path="/practice/:chapter?" element={<PracticePage />} />
+          <Route path="/tips" element={<TipsPage />} />
           <Route path="/history" element={<HistoryPage />} />
           <Route path="/exams/:id" element={<ExamPage />} />
         </Route>

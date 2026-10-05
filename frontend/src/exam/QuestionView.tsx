@@ -1,7 +1,10 @@
 import type { ExamItem } from '../api/exams'
 
+/** The fields QuestionView needs; exam items and practice questions both provide them. */
+export type QuestionViewItem = Pick<ExamItem, 'number' | 'content' | 'image' | 'image_type' | 'options' | 'correct_position'>
+
 interface Props {
-  item: ExamItem
+  item: QuestionViewItem
   heading: string
   selected: number | null
   onSelect?: (position: number) => void

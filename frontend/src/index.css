@@ -915,6 +915,253 @@ input:not([type='radio']) {
   font-size: 1.125rem;
 }
 
+/* ---------- practice ---------- */
+
+.practice-head {
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+/* Topic tabs scroll sideways on narrow screens instead of wrapping into a tall block */
+.chapter-tabs {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0.75rem var(--gutter);
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+.chapter-tab {
+  flex: 1 0 150px;
+  max-width: 220px;
+  display: grid;
+  gap: 0.4rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+.chapter-tab:hover {
+  border-color: var(--muted);
+}
+.chapter-tab.active {
+  border-color: var(--sign-blue);
+  background: var(--sign-blue-tint);
+  box-shadow: inset 0 -3px 0 var(--sign-blue);
+}
+.chapter-tab-name {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-weight: 500;
+  line-height: 1.3;
+}
+.chapter-tab-number {
+  font: 700 1.05em/1 var(--font-display);
+  margin-right: 0.35rem;
+  color: var(--sign-blue);
+}
+.chapter-tab-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+}
+.chapter-tab-bar {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--line);
+  overflow: hidden;
+}
+.chapter-tab-bar > span {
+  display: block;
+  height: 100%;
+  background: var(--go-green);
+}
+
+.practice-chapter {
+  margin: 0 0 0.5rem;
+  font-size: 0.875rem;
+}
+.tag-critical {
+  display: inline-block;
+  margin: 0 0 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-s);
+  background: var(--stop-red-tint);
+  color: var(--stop-red);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+.practice-feedback {
+  min-height: 1.5rem;
+  margin: 1rem 0 0;
+  font-weight: 600;
+}
+.practice-feedback .is-right,
+.practice-stats .is-right {
+  color: var(--go-green);
+}
+.practice-feedback .is-wrong,
+.practice-stats .is-wrong {
+  color: var(--stop-red);
+}
+.practice-stats {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.75rem;
+  font-size: 0.9375rem;
+}
+/* A topic can have ~185 questions: keep the map scrollable so the sticky aside fits the screen */
+.practice-aside .qgrid {
+  grid-template-columns: repeat(6, 1fr);
+  max-height: min(55vh, 520px);
+  overflow-y: auto;
+  padding: 4px; /* room for the current-cell focus ring */
+}
+.qcell.is-correct {
+  background: var(--go-green-tint);
+  border-color: var(--go-green);
+  color: var(--go-green);
+}
+.qcell.is-wrong {
+  background: var(--stop-red-tint);
+  border-color: var(--stop-red);
+  color: var(--stop-red);
+}
+
+/* ---------- tips ---------- */
+
+.tips h1 {
+  margin-bottom: 0.5rem;
+}
+.tips section {
+  margin-top: 2.5rem;
+  scroll-margin-top: 5rem;
+}
+.tips-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1.25rem;
+}
+.tips-toc a {
+  padding: 0.3rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.8125rem;
+  text-decoration: none;
+}
+.tips-toc a:hover {
+  border-color: var(--sign-blue);
+}
+.tip-list,
+.myth-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+.tip,
+.myth {
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--go-green);
+  border-radius: var(--radius-s);
+}
+.tip h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+}
+.tip ul,
+.question-tip ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.3rem;
+}
+.tip-questions {
+  margin: 0.75rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.875rem;
+}
+.tip-qlink {
+  min-width: 2.75rem;
+  padding: 0.2rem 0.45rem;
+  border: 1px solid var(--sign-blue);
+  border-radius: var(--radius-s);
+  color: var(--sign-blue);
+  text-align: center;
+  text-decoration: none;
+  font: 600 0.95rem/1.2 var(--font-display);
+}
+.tip-qlink:hover {
+  background: var(--sign-blue-tint);
+}
+.myth {
+  border-left-color: var(--stop-red);
+}
+.myth p {
+  margin: 0;
+}
+.myth-claim {
+  font-weight: 600;
+}
+.myth-label {
+  display: inline-block;
+  margin-right: 0.5rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: var(--radius-s);
+  background: var(--stop-red-tint);
+  color: var(--stop-red);
+  font-size: 0.75rem;
+  vertical-align: 0.1em;
+}
+.myth-truth,
+.myth-stats {
+  margin-top: 0.4rem !important;
+}
+.myth-stats {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.question-tips {
+  margin-top: 1rem;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--amber);
+  border-radius: var(--radius-s);
+  background: var(--amber-tint);
+}
+.question-tips summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.question-tips[open] summary {
+  margin-bottom: 0.6rem;
+}
+.question-tip {
+  margin-bottom: 0.75rem;
+}
+.question-tip-title {
+  margin: 0 0 0.35rem;
+  font-weight: 600;
+}
+
 /* ---------- responsive ---------- */
 
 @media (max-width: 900px) {
@@ -936,7 +1183,8 @@ input:not([type='radio']) {
     background: var(--paper);
     border-top: 1px solid var(--line);
   }
-  .qgrid {
+  .qgrid,
+  .practice-aside .qgrid {
     grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
   }
   .verdict {
