@@ -12,6 +12,7 @@ urlpatterns = [
     path("api/auth/", include("apps.accounts.urls")),
     path("api/", include("apps.questions.urls")),
     path("api/", include("apps.exams.urls")),
+    path("api/admin/", include("apps.backoffice.urls")),
 ]
 
 if settings.DEBUG:

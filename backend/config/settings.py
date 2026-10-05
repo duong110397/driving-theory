@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "apps.accounts",
     "apps.questions",
     "apps.exams",
+    "apps.backoffice",
 ]
 
 MIDDLEWARE = [

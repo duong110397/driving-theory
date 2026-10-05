@@ -1,6 +1,9 @@
 import { Navigate, Route, Routes } from 'react-router'
 import { RequireAuth } from './auth/RequireAuth'
+import { RequireStaff } from './auth/RequireStaff'
 import { AppLayout } from './components/AppLayout'
+import { AdminUserDetailPage } from './pages/AdminUserDetailPage'
+import { AdminUsersPage } from './pages/AdminUsersPage'
 import { ExamPage } from './pages/ExamPage'
 import { HistoryPage } from './pages/HistoryPage'
 import { HomePage } from './pages/HomePage'
@@ -21,6 +24,10 @@ function App() {
           <Route path="/tips" element={<TipsPage />} />
           <Route path="/history" element={<HistoryPage />} />
           <Route path="/exams/:id" element={<ExamPage />} />
+          <Route element={<RequireStaff />}>
+            <Route path="/quan-tri" element={<AdminUsersPage />} />
+            <Route path="/quan-tri/users/:id" element={<AdminUserDetailPage />} />
+          </Route>
         </Route>
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />

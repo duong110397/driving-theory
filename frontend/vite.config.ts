@@ -14,6 +14,9 @@ export default defineConfig({
     proxy: {
       '/api': { target: apiTarget, changeOrigin: true },
       '/media': { target: apiTarget, changeOrigin: true },
+      // Django admin (and its static files, served by runserver in DEBUG)
+      '/admin': { target: apiTarget, changeOrigin: true },
+      '/static': { target: apiTarget, changeOrigin: true },
     },
   },
 })

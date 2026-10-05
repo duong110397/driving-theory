@@ -1162,6 +1162,137 @@ input:not([type='radio']) {
   font-weight: 600;
 }
 
+/* ---------- admin ---------- */
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+.stat-tile {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.9rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+}
+.stat-label {
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+.stat-value {
+  font: 700 2rem/1 var(--font-display);
+  color: var(--asphalt);
+  font-variant-numeric: tabular-nums;
+}
+.stat-hint {
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+.admin-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.admin-search {
+  flex: 1 1 260px;
+}
+.admin-filters select {
+  font: inherit;
+  min-height: 44px;
+  padding: 0 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  background: var(--surface);
+  color: var(--asphalt);
+}
+.admin-count {
+  margin: 0 0 0.5rem;
+  font-size: 0.875rem;
+}
+/* Wide table scrolls inside its own box on phones, never the whole page */
+.table-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  background: var(--surface);
+}
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+.admin-table th,
+.admin-table td {
+  padding: 0.65rem 0.85rem;
+  text-align: left;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--line);
+}
+.admin-table th {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--paper);
+}
+.admin-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+.admin-table tbody tr:hover {
+  background: var(--paper);
+}
+.admin-table .num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.admin-table a {
+  font-weight: 600;
+}
+.admin-table .is-inactive td {
+  color: var(--muted);
+}
+.cell-email {
+  max-width: 260px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.role-badge {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0.05rem 0.45rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.role-badge.is-staff {
+  background: var(--sign-blue-tint);
+  border-color: transparent;
+  color: var(--sign-blue);
+}
+.role-badge.is-super {
+  background: var(--amber-tint);
+  border-color: var(--amber);
+  color: var(--asphalt);
+}
+.admin-facts {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.admin-facts dd {
+  font: 600 1rem/1.4 var(--font-body);
+  overflow-wrap: anywhere;
+}
+.admin h1 {
+  word-break: break-word;
+}
+
 /* ---------- responsive ---------- */
 
 @media (max-width: 900px) {

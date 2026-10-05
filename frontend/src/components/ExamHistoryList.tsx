@@ -1,13 +1,20 @@
+import type { ReactNode } from 'react'
 import { Link } from 'react-router'
 import type { ExamSummary } from '../api/exams'
 import { formatDateTime } from '../lib/format'
 
-export function ExamHistoryList({ exams }: { exams: ExamSummary[] }) {
+interface Props {
+  exams: ExamSummary[]
+  /** Rows link to the exam page only for its owner; admins viewing someone else's history get plain rows. */
+  linkToExam?: boolean
+}
+
+export function ExamHistoryList({ exams, linkToExam = true }: Props) {
   return (
     <ul className="history-list">
       {exams.map((e) => (
         <li key={e.id}>
-          <Link to={`/exams/${e.id}`} className="history-row">
+          <Row to={linkToExam ? `/exams/${e.id}` : null}>
             <span className="class-code">{e.license_class}</span>
             <span className="history-date">{formatDateTime(e.started_at)}</span>
             {e.status === 'submitted' ? (
@@ -25,9 +32,19 @@ export function ExamHistoryList({ exams }: { exams: ExamSummary[] }) {
                 <span className="verdict-chip">Đang làm</span>
               </>
             )}
-          </Link>
+          </Row>
         </li>
       ))}
     </ul>
+  )
+}
+
+function Row({ to, children }: { to: string | null; children: ReactNode }) {
+  return to ? (
+    <Link to={to} className="history-row">
+      {children}
+    </Link>
+  ) : (
+    <div className="history-row">{children}</div>
   )
 }

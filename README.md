@@ -160,6 +160,17 @@ docker-compose.yml
 .env.example
 ```
 
+## Quản trị
+
+Tài khoản có `is_staff` thấy thêm tab **Quản trị** (`/quan-tri`): số liệu tổng quan, danh sách người dùng (tìm kiếm, lọc vai trò, sắp xếp, phân trang) và chi tiết từng người kèm các bài thi gần đây. Trang chỉ đọc; API `/api/admin/*` trả `403` cho người dùng thường. Sửa/khoá tài khoản dùng Django admin tại `/admin/` (cần `is_superuser` hoặc quyền tương ứng).
+
+Cấp hoặc thu hồi quyền quản trị cho một tài khoản đã đăng ký:
+
+```bash
+docker compose exec backend python manage.py set_staff <username>
+docker compose exec backend python manage.py set_staff <username> --revoke
+```
+
 ## Deploy miễn phí (Render + Neon)
 
 `Dockerfile` ở thư mục gốc đóng gói cả hai phần vào một image: build React, rồi Django (gunicorn + WhiteNoise) phục vụ API, SPA, static và ảnh câu hỏi (ảnh được đóng sẵn vào image vì filesystem của Render không lưu lâu dài). Khi container khởi động, `entrypoint.sh` chạy `migrate` và `import_questions --if-empty`.
