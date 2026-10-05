@@ -138,8 +138,17 @@ class Command(BaseCommand):
             action="store_true",
             help="Re-upload images even if they already exist in storage.",
         )
+        parser.add_argument(
+            "--if-empty",
+            action="store_true",
+            help="Do nothing when questions already exist (cheap to run on every container start).",
+        )
 
-    def handle(self, *args: Any, source: Path, overwrite_images: bool, **options: Any) -> None:
+    def handle(self, *args: Any, source: Path, overwrite_images: bool, if_empty: bool, **options: Any) -> None:
+        if if_empty and Question.objects.exists():
+            self.stdout.write("Questions already imported; skipping (--if-empty).")
+            return
+
         images_dir = source / "images"
         raw = _load_json(source / "questions.json")
         if not isinstance(raw, list):

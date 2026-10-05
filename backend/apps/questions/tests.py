@@ -51,8 +51,8 @@ class ImportCommandTests(TestCase):
     def _write(self, questions: list[dict]) -> None:
         (self.source / "questions.json").write_text(json.dumps(questions), encoding="utf-8")
 
-    def _import(self) -> None:
-        call_command("import_questions", source=self.source, stdout=open("/dev/null", "w"))
+    def _import(self, **options: bool) -> None:
+        call_command("import_questions", source=self.source, stdout=open("/dev/null", "w"), **options)
 
     def test_imports_questions_options_and_images(self) -> None:
         self._write([_question(1), _question(2, chapter=2, critical=True, image="q-2.png")])
@@ -72,6 +72,18 @@ class ImportCommandTests(TestCase):
         self._import()
         self.assertEqual(Question.objects.count(), 2)
         self.assertEqual(Option.objects.count(), 4)
+
+    def test_if_empty_skips_when_questions_exist(self) -> None:
+        self._write([_question(1)])
+        self._import()
+        self._write([_question(1), _question(2)])
+        self._import(if_empty=True)
+        self.assertEqual(Question.objects.count(), 1)
+
+    def test_if_empty_imports_into_empty_database(self) -> None:
+        self._write([_question(1)])
+        self._import(if_empty=True)
+        self.assertEqual(Question.objects.count(), 1)
 
     def test_invalid_dataset_is_rejected_without_writing(self) -> None:
         bad = _question(2)

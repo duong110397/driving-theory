@@ -159,3 +159,25 @@ frontend/
 docker-compose.yml
 .env.example
 ```
+
+## Deploy miễn phí (Render + Neon)
+
+`Dockerfile` ở thư mục gốc đóng gói cả hai phần vào một image: build React, rồi Django (gunicorn + WhiteNoise) phục vụ API, SPA, static và ảnh câu hỏi (ảnh được đóng sẵn vào image vì filesystem của Render không lưu lâu dài). Khi container khởi động, `entrypoint.sh` chạy `migrate` và `import_questions --if-empty`.
+
+```mermaid
+flowchart LR
+    U[Trình duyệt] -->|HTTPS| R[Render free web service<br/>gunicorn + Django + WhiteNoise]
+    R -->|/api, /admin| N[(Neon Postgres free)]
+    R -->|/assets, /media, /static| F[File đóng sẵn trong image]
+    R -->|/history, /exams/...| I[index.html của SPA]
+```
+
+1. **Neon**: tạo project (region *AWS Asia Pacific – Singapore*), copy connection string **Direct** (không phải *Pooled*).
+2. **Render**: *New → Blueprint* → chọn repo này. Render đọc `render.yaml` và hỏi `DATABASE_URL`: dán chuỗi ở bước 1.
+3. Tạo tài khoản admin: Render → service → *Shell* (nếu gói free không có Shell thì chạy lệnh này ở máy với `DATABASE_URL` của Neon):
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+Giới hạn gói free: service ngủ sau ~15 phút không có truy cập, lần truy cập đầu chờ ~30–60s.
+
