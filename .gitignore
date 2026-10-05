@@ -1,0 +1,20 @@
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+backend/staticfiles/
+backend/media/
+
+# Node
+node_modules/
+dist/
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
