@@ -103,8 +103,9 @@ export function PracticeSession({
           Chủ đề {chapter.number}. {chapter.name}
         </p>
         {question.is_critical && <p className="tag-critical">Câu điểm liệt</p>}
+        {/* Distinct keys: siblings sharing one key make React leave the previous question's DOM behind. */}
         <QuestionView
-          key={question.number}
+          key={`question-${question.number}`}
           item={item}
           heading={`Câu ${index + 1}/${total} · số ${question.number} trong bộ 600 câu`}
           selected={record?.position ?? null}
@@ -119,7 +120,7 @@ export function PracticeSession({
               <span className="is-wrong">Chưa đúng. Đáp án đúng là {item.correct_position}.</span>
             ))}
         </p>
-        <QuestionTips key={question.number} tips={tipsByQuestion.get(question.number) ?? []} />
+        <QuestionTips key={`tips-${question.number}`} tips={tipsByQuestion.get(question.number) ?? []} />
         <div className="exam-nav">
           <button type="button" className="btn btn-quiet" onClick={() => goTo(index - 1)} disabled={index === 0}>
             Câu trước
