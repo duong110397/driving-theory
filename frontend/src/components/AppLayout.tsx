@@ -35,6 +35,7 @@ export function AppLayout() {
           </NavLink>
           <NavLink to="/practice">Ôn tập</NavLink>
           <NavLink to="/tips">Mẹo</NavLink>
+          <NavLink to="/mo-phong">Mô phỏng</NavLink>
           <NavLink to="/history">Lịch sử</NavLink>
           {user.is_staff && <NavLink to="/quan-tri">Quản trị</NavLink>}
         </nav>

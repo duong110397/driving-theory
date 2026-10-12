@@ -10,6 +10,7 @@ import { HomePage } from './pages/HomePage'
 import { LoginPage } from './pages/LoginPage'
 import { PracticePage } from './pages/PracticePage'
 import { RegisterPage } from './pages/RegisterPage'
+import { SimulatorPage } from './pages/SimulatorPage'
 import { TipsPage } from './pages/TipsPage'
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/practice/:chapter?" element={<PracticePage />} />
           <Route path="/tips" element={<TipsPage />} />
+          <Route path="/mo-phong" element={<SimulatorPage />} />
           <Route path="/history" element={<HistoryPage />} />
           <Route path="/exams/:id" element={<ExamPage />} />
           <Route element={<RequireStaff />}>

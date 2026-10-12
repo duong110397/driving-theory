@@ -1386,3 +1386,328 @@ input:not([type='radio']) {
     transition: none !important;
   }
 }
+
+/* ---------- driving simulator ---------- */
+
+.sim {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 1.25rem var(--gutter) 2rem;
+}
+.sim-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.sim-head h1 {
+  margin: 0;
+}
+.sim-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+.sim-stage {
+  position: relative;
+  height: clamp(380px, calc(100vh - 230px), 760px);
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  background: #7aa85f;
+  /* The map stays light in dark mode, so its overlays use fixed dark panels */
+  color: #ffffff;
+}
+.sim-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.sim-hud {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: grid;
+  gap: 0.5rem;
+  max-width: min(360px, calc(100% - 210px));
+  pointer-events: none;
+}
+.sim-gauge,
+.sim-stats,
+.sim-hint {
+  margin: 0;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-s);
+  background: rgba(16, 19, 24, 0.78);
+}
+.sim-gauge {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: max-content;
+}
+.sim-speed {
+  min-width: 3.2ch;
+  font: 700 2.25rem/1 var(--font-display);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.sim-speed small {
+  margin-left: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #c9d1db;
+}
+.sim-speed.is-over {
+  color: var(--led-stop);
+}
+.sim-blinker {
+  color: #4a515c;
+  font-size: 1.1rem;
+}
+.sim-blinker.is-on {
+  color: var(--led-warn);
+  animation: sim-blink 0.8s steps(1) infinite;
+}
+@keyframes sim-blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+/* Speed limit sign (QCVN 41, P.127) */
+.sim-limit {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 5px solid var(--stop-red);
+  border-radius: 50%;
+  background: #ffffff;
+  color: #111111;
+  font: 700 1rem/1 var(--font-display);
+}
+.sim-stats {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+}
+.sim-stats dt {
+  font-size: 0.75rem;
+  color: #c9d1db;
+}
+.sim-stats dd {
+  margin: 0;
+  font: 600 1.25rem/1.2 var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+.sim-stats dd.is-failing {
+  color: var(--led-stop);
+}
+.sim-hint {
+  font-size: 0.875rem;
+  border-left: 4px solid #7fb2ee;
+}
+.sim-toasts {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  display: grid;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  pointer-events: none;
+}
+.sim-toasts li {
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  background: var(--stop-red);
+  color: #ffffff;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+.sim-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(15, 18, 22, 0.55);
+  overflow-y: auto;
+}
+.sim-card {
+  width: min(460px, 100%);
+  padding: 1.5rem;
+  border-top: 6px solid var(--sign-blue);
+  border-radius: var(--radius-m);
+  background: var(--surface);
+  color: var(--ink);
+}
+.sim-card h2 {
+  margin: 0 0 0.5rem;
+}
+.sim-card p {
+  margin: 0 0 1rem;
+}
+.sim-keys {
+  margin: 0 0 1rem;
+  padding-left: 1.1rem;
+  font-size: 0.9375rem;
+}
+kbd {
+  display: inline-block;
+  min-width: 1.6em;
+  padding: 0 0.35em;
+  border: 1px solid var(--line);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  font: 600 0.8125rem/1.5 var(--font-body);
+  text-align: center;
+}
+.sim-rules {
+  margin: 0 0 1.25rem;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9375rem;
+}
+.sim-rules li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.sim-rules span {
+  color: var(--stop-red);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.sim-result h2.is-pass {
+  color: var(--go-green);
+}
+.sim-result h2.is-fail {
+  color: var(--stop-red);
+}
+.sim-note {
+  font-size: 0.8125rem;
+  margin-top: 0.75rem;
+}
+
+/* On-screen pedals, only where there is no mouse */
+.sim-touch {
+  display: none;
+}
+@media (hover: none) and (pointer: coarse) {
+  .sim-touch {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 0.5rem;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .sim-toasts {
+    bottom: 96px;
+  }
+}
+.sim-touch-group {
+  display: flex;
+  gap: 0.5rem;
+}
+.sim-touch-group {
+  gap: 6px;
+}
+.sim-touch-group:nth-child(2) {
+  flex-direction: column;
+}
+/* Overrides the global button look: no padding, no (sticky on touch) hover colour */
+.sim-pad,
+.sim-pad:hover:not(:disabled) {
+  width: 56px;
+  min-height: 56px;
+  padding: 0;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-m);
+  background: rgba(16, 19, 24, 0.6);
+  color: #ffffff;
+  font: 600 1rem/1.1 var(--font-body);
+  touch-action: none;
+}
+.sim-pad:active {
+  background: rgba(16, 19, 24, 0.85);
+}
+.sim-pad.sim-pad-small {
+  width: 64px;
+  min-height: 25px;
+  font-size: 0.6875rem;
+}
+.sim-dpad {
+  display: grid;
+  grid-template-columns: repeat(3, 56px);
+  grid-template-areas:
+    '. up .'
+    'left . right'
+    '. down .';
+  gap: 4px;
+}
+.sim-pad-up {
+  grid-area: up;
+}
+.sim-pad-left {
+  grid-area: left;
+}
+.sim-pad-right {
+  grid-area: right;
+}
+.sim-pad-down {
+  grid-area: down;
+}
+
+@media (max-width: 640px) {
+  .sim-hud {
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    gap: 0.35rem;
+    max-width: none;
+  }
+  .sim-gauge,
+  .sim-stats,
+  .sim-hint {
+    padding: 0.3rem 0.55rem;
+  }
+  .sim-speed {
+    font-size: 1.5rem;
+  }
+  .sim-limit {
+    width: 2rem;
+    height: 2rem;
+    border-width: 4px;
+    font-size: 0.875rem;
+  }
+  .sim-stats {
+    gap: 0.75rem;
+  }
+  .sim-stats dd {
+    font-size: 1rem;
+  }
+  /* The minimap sits top-right on the canvas; keep the hint clear of it */
+  .sim-hint {
+    width: max-content;
+    max-width: calc(100% - 130px);
+    font-size: 0.8125rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sim-blinker.is-on {
+    animation: none;
+  }
+}
